@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annyeong Store </title>
+</head>
+
+<body>
+  <nav>
+    <h1>Annyeong Store</h1>
+  </nav>
+  <form action="http://localhost:3000/register" method="POST">
+    <label for="userName">User Name</label>
+    <br>
+    <input type="text" name="userName" id="">
+    <br><br>
+    <label for="password">Password</label>
+    <br>
+    <input type="password" value="" id="myInput" name="password">
+    <input type="checkbox" onclick="myFunction()">Show Password
+    <br><br>
+    <label for="membership">Membership</label>
+    <br>
+    <select name="membership" id="">
+      <option selected disabled>--Select One--</option>
+      <option value="Reguler">Reguler</option>
+      <option value="VIP">VIP</option>
+    </select>
+    <br><br>
+    <label for="fullName">Full Name</label>
+    <br>
+    <input type="text" name="fullName" id="">
+    <br><br>
+    <label for="gender">Gender</label>
+    <br>
+    <select name="gender" id="">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <br><br>
+    <label for="email">Email</label>
+    <br>
+    <input type="text" name="email" id="">
+    <br><br>
+    <label for="phone">Phone Number</label>
+    <br>
+    <input type="text" name="phone" id="">
+    <br><br>
+    <label for="adress">Address</label>
+    <br>
+    <input type="text" name="address" id="">
+    <br><br>
+    <input type="submit" value="Register">
+  </form>
+
+  <script>
+    function myFunction() {
+      let x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
+</body>
+
+</html>

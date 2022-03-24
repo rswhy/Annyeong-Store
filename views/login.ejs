@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annyeong Store</title>
+</head>
+
+<body>
+  <nav>
+    <h1>Annyeong Store</h1>
+  </nav>
+
+  <div>
+    <% if (err) {%>
+      <p style="color: red;"><%= err %> !</p> 
+    <%} %> 
+  </div>
+
+  <form action="/login" method="POST">
+    <label for="userName">User Name</label>
+    <br>
+    <input type="text" name="userName" id="">
+    <br>
+
+    <label for="password">Password</label>
+    <br>
+    <input type="password" value="" id="myInput" name="password">
+    <input type="checkbox" onclick="myFunction()">Show Password
+
+    <br>
+    <input type="submit" value="Login">
+    <br>
+    <a href="/register">Register</a>
+  </form>
+
+  <script>
+    function myFunction() {
+      let x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>   
+</body>
+
+</html>
