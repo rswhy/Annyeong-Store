@@ -81,9 +81,19 @@
     outline: 0;
     border: 0;
     color: white;
-    background: pink;
+    background: #C65D7B;
     transition: 0.3s;
 
+  }
+
+  .select-opt {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #60666d;
   }
 
   @keyframes NO {
@@ -130,9 +140,9 @@
     <h1>Annyeong Store</h1>
   </nav>
 
-  <div class="user">
+  <!-- <div class="user">
     <header class="user__header">
-      <!--         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" /> -->
+    
       <h1 class="user__title">Get Yours Now</h1>
     </header>
 
@@ -151,72 +161,99 @@
 
       <button class="btn" type="button">Register</button>
     </form>
+  </div> -->
+
+  <div class="user">
+    <header class="user__header">
+
+      <h1 class="user__title">Get Yours Now</h1>
+    </header>
+
+    <form class="form" action="/register" method="POST">
+      <div class="form__group">
+        <!-- <label for="userName">User Name</label> -->
+        <!-- <br> -->
+        <input type="text" name="userName" placeholder="Username" class="form__input">
+      </div>
+      <!-- <br><br> -->
+
+      <!-- <label for="password">Password</label>
+    <br> -->
+      <div class="form__group">
+        <input type="password" value="" id="myInput" name="password" class="form__input" placeholder="Password">
+
+      </div>
+      <div class="form__group">
+        <input type="checkbox" onclick="myFunction()">Show Password
+      </div>
+      <!-- <br><br> -->
+      <br>
+      <div class="form__group">
+        <label class="user__title" for="membership">Membership</label>
+        <select class="select-opt" name="membership" id="" class="">
+          <option selected disabled value="">--Select One--</option>
+          <option value="Reguler">Reguler</option>
+          <option value="VIP">VIP</option>
+        </select>
+      </div>
+      <!-- <br><br>
+    <label for="fullName">Full Name</label> -->
+      <!-- <br> -->
+      <div class="form__group">
+        <input type="text" name="fullName" id="" class="form__input" placeholder="Full Name">
+      </div>
+      <!-- <br><br> -->
+      <div class="form__group" class="form__input">
+        <label class="user__title" for="gender">Gender</label>
+        <select class="select-opt" name="gender" id="">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+      <!-- <br><br>
+    <label for="email">Email</label>
+    <br> -->
+      <div class="form__group">
+        <input type="text" name="email" id="" class="form__input" placeholder="Email">
+      </div>
+      <!-- <br><br>
+    <label for="phone">Phone Number</label> -->
+      <!-- <br> -->
+      <div class="form__group">
+        <input type="text" name="phone" id="" class="form__input" placeholder="Phone">
+      </div>
+      <!-- <br><br>
+    <label for="adress">Address</label>
+    <br> -->
+      <div class="form__group">
+        <input type="text" name="address" id="" class="form__input" placeholder="Address">
+
+      </div>
+      <!-- <br><br> -->
+      <!-- <button class="btn" type="button">Register</button> -->
+      <input class="btn" type="submit" value="Register">
+    </form>
+
+  </div>
+  <div style="text-align: center;">
+    <% if (errors) {%>
+      <%errors=errors.split(",") %>
+      <% for(let i=0; i < errors.length ; i++) { %>
+        <p style="color: red;"><%= errors[i] %></p>
+      <% } %>
+    <% } %>
   </div>
 
-
-  <form class="form" action="/register" method="POST">
-    <label for="userName">User Name</label>
-    <br>
-    <input type="text" name="userName" id="">
-    <br><br>
-    <label for="password">Password</label>
-    <br>
-    <input type="password" value="" id="myInput" name="password">
-    <input type="checkbox" onclick="myFunction()">Show Password
-    <br><br>
-    <label for="membership">Membership</label>
-    <br>
-    <select name="membership" id="">
-      <option selected disabled value="">--Select One--</option>
-      <option value="Reguler">Reguler</option>
-      <option value="VIP">VIP</option>
-    </select>
-    <br><br>
-    <label for="fullName">Full Name</label>
-    <br>
-    <input type="text" name="fullName" id="">
-    <br><br>
-    <label for="gender">Gender</label>
-    <br>
-    <select name="gender" id="">
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
-    <br><br>
-    <label for="email">Email</label>
-    <br>
-    <input type="text" name="email" id="">
-    <br><br>
-    <label for="phone">Phone Number</label>
-    <br>
-    <input type="text" name="phone" id="">
-    <br><br>
-    <label for="adress">Address</label>
-    <br>
-    <input type="text" name="address" id="">
-    <br><br>
-    <input type="submit" value="Register">
-  </form>
-
-  <% if (errors) {%>
-    <%errors=errors.split(",") %>
-      <% for(let i=0; i < errors.length ; i++) { %>
-        <p style="color: red;">
-          <%= errors[i] %>
-        </p>
-        <% } %>
-          <% } %>
-
-            <script>
-              function myFunction() {
-                let x = document.getElementById("myInput");
-                if (x.type === "password") {
-                  x.type = "text";
-                } else {
-                  x.type = "password";
-                }
-              }
-            </script>
+  <script>
+    function myFunction() {
+      let x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
 </body>
 
 </html>

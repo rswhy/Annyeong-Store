@@ -294,13 +294,14 @@ input[type=text]:placeholder, input[type=password]:placeholder {
       </div>
   
       <!-- Login Form -->
-      <form>
+      <form action="/login" method="post" >
         <input type="text" id="login" class="fadeIn second" name="userName" placeholder="User Name">
         <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
         <input type="submit" class="fadeIn fourth" value="Log In">
       </form>
       
       <div id="formFooter">
+        <a href="/register">Register</a>
         <input class="underlineHover" type="checkbox" onclick="myFunction()">Show Password
       </div>
     </div>
