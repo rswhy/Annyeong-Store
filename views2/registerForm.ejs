@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annyeong Store </title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: pink;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    background-size: 200% 100% !important;
+    animation: move 10s ease infinite;
+    transform: translate3d(0, 0, 0);
+    background: pink;
+    height: 100vh
+  }
+
+  .user {
+    width: 90%;
+    max-width: 340px;
+    margin: 10vh auto;
+  }
+
+  .user__header {
+    text-align: center;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 500ms ease-in-out 0.7s forwards;
+  }
+
+  .user__title {
+    font-size: 14px;
+    margin-bottom: -10px;
+    font-weight: 500;
+    color: white;
+  }
+
+  .form {
+    margin-top: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 500ms ease-in-out 0.9s forwards;
+  }
+
+  .form--no {
+    animation: NO 1s ease-in-out;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .form__input {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    transition: 0.3s;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: pink;
+    transition: 0.3s;
+
+  }
+
+  @keyframes NO {
+
+    from,
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      -webkit-transform: translate3d(-10px, 0, 0);
+      transform: translate3d(-10px, 0, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+      -webkit-transform: translate3d(10px, 0, 0);
+      transform: translate3d(10px, 0, 0);
+    }
+  }
+
+  @keyframes arrive {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 50px, 0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+</style>
+
+<body>
+  <nav>
+    <h1>Annyeong Store</h1>
+  </nav>
+
+  <div class="user">
+    <header class="user__header">
+      <!--         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" /> -->
+      <h1 class="user__title">Get Yours Now</h1>
+    </header>
+
+    <form class="form">
+      <div class="form__group">
+        <input type="text" placeholder="Username" class="form__input" />
+      </div>
+
+      <div class="form__group">
+        <input type="email" placeholder="Email" class="form__input" />
+      </div>
+
+      <div class="form__group">
+        <input type="password" placeholder="Password" class="form__input" />
+      </div>
+
+      <button class="btn" type="button">Register</button>
+    </form>
+  </div>
+
+
+  <form class="form" action="/register" method="POST">
+    <label for="userName">User Name</label>
+    <br>
+    <input type="text" name="userName" id="">
+    <br><br>
+    <label for="password">Password</label>
+    <br>
+    <input type="password" value="" id="myInput" name="password">
+    <input type="checkbox" onclick="myFunction()">Show Password
+    <br><br>
+    <label for="membership">Membership</label>
+    <br>
+    <select name="membership" id="">
+      <option selected disabled value="">--Select One--</option>
+      <option value="Reguler">Reguler</option>
+      <option value="VIP">VIP</option>
+    </select>
+    <br><br>
+    <label for="fullName">Full Name</label>
+    <br>
+    <input type="text" name="fullName" id="">
+    <br><br>
+    <label for="gender">Gender</label>
+    <br>
+    <select name="gender" id="">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <br><br>
+    <label for="email">Email</label>
+    <br>
+    <input type="text" name="email" id="">
+    <br><br>
+    <label for="phone">Phone Number</label>
+    <br>
+    <input type="text" name="phone" id="">
+    <br><br>
+    <label for="adress">Address</label>
+    <br>
+    <input type="text" name="address" id="">
+    <br><br>
+    <input type="submit" value="Register">
+  </form>
+
+  <% if (errors) {%>
+    <%errors=errors.split(",") %>
+      <% for(let i=0; i < errors.length ; i++) { %>
+        <p style="color: red;">
+          <%= errors[i] %>
+        </p>
+        <% } %>
+          <% } %>
+
+            <script>
+              function myFunction() {
+                let x = document.getElementById("myInput");
+                if (x.type === "password") {
+                  x.type = "text";
+                } else {
+                  x.type = "password";
+                }
+              }
+            </script>
+</body>
+
+</html>
