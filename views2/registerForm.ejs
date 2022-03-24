@@ -96,6 +96,27 @@
     color: #60666d;
   }
 
+  footer {
+    background-color: #874356;
+    height: 15%;
+  }
+
+  a {
+    padding: 20px;
+  }
+
+  p {
+    color: #F6E7D8;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding-top: 15px
+  }
+
+  .foot-link {
+    padding-top: 20px;
+    text-align: center;
+  }
+
   @keyframes NO {
 
     from,
@@ -140,29 +161,6 @@
     <h1>Annyeong Store</h1>
   </nav>
 
-  <!-- <div class="user">
-    <header class="user__header">
-    
-      <h1 class="user__title">Get Yours Now</h1>
-    </header>
-
-    <form class="form">
-      <div class="form__group">
-        <input type="text" placeholder="Username" class="form__input" />
-      </div>
-
-      <div class="form__group">
-        <input type="email" placeholder="Email" class="form__input" />
-      </div>
-
-      <div class="form__group">
-        <input type="password" placeholder="Password" class="form__input" />
-      </div>
-
-      <button class="btn" type="button">Register</button>
-    </form>
-  </div> -->
-
   <div class="user">
     <header class="user__header">
 
@@ -171,14 +169,9 @@
 
     <form class="form" action="/register" method="POST">
       <div class="form__group">
-        <!-- <label for="userName">User Name</label> -->
-        <!-- <br> -->
         <input type="text" name="userName" placeholder="Username" class="form__input">
       </div>
-      <!-- <br><br> -->
 
-      <!-- <label for="password">Password</label>
-    <br> -->
       <div class="form__group">
         <input type="password" value="" id="myInput" name="password" class="form__input" placeholder="Password">
 
@@ -186,7 +179,7 @@
       <div class="form__group">
         <input type="checkbox" onclick="myFunction()">Show Password
       </div>
-      <!-- <br><br> -->
+
       <br>
       <div class="form__group">
         <label class="user__title" for="membership">Membership</label>
@@ -196,9 +189,7 @@
           <option value="VIP">VIP</option>
         </select>
       </div>
-      <!-- <br><br>
-    <label for="fullName">Full Name</label> -->
-      <!-- <br> -->
+
       <div class="form__group">
         <input type="text" name="fullName" id="" class="form__input" placeholder="Full Name">
       </div>
@@ -210,27 +201,21 @@
           <option value="Female">Female</option>
         </select>
       </div>
-      <!-- <br><br>
-    <label for="email">Email</label>
-    <br> -->
+
+      <br> -->
       <div class="form__group">
         <input type="text" name="email" id="" class="form__input" placeholder="Email">
       </div>
-      <!-- <br><br>
-    <label for="phone">Phone Number</label> -->
-      <!-- <br> -->
+
       <div class="form__group">
         <input type="text" name="phone" id="" class="form__input" placeholder="Phone">
       </div>
-      <!-- <br><br>
-    <label for="adress">Address</label>
-    <br> -->
+
       <div class="form__group">
         <input type="text" name="address" id="" class="form__input" placeholder="Address">
 
       </div>
-      <!-- <br><br> -->
-      <!-- <button class="btn" type="button">Register</button> -->
+
       <input class="btn" type="submit" value="Register">
     </form>
 
@@ -238,12 +223,27 @@
   <div style="text-align: center;">
     <% if (errors) {%>
       <%errors=errors.split(",") %>
-      <% for(let i=0; i < errors.length ; i++) { %>
-        <p style="color: red;"><%= errors[i] %></p>
-      <% } %>
-    <% } %>
+        <% for(let i=0; i < errors.length ; i++) { %>
+          <p style="color: red;">
+            <%= errors[i] %>
+          </p>
+          <% } %>
+            <% } %>
   </div>
 
+  <footer>
+    <div class="foot-link">
+      <a href="#"><img width="30rem"
+          src="https://www.freepnglogos.com/uploads/twitter-logo-png/black-and-white-twitter-logo-png-hq-download-25.png"
+          alt=""></a>
+      <a href="#"><img width="30rem"
+          src="https://www.freepnglogos.com/uploads/512x512-logo/512x512-transparent-instagram-logo-icon-5.png"
+          alt=""></a>
+      <a href="/emailUs"><img width="30rem"
+          src="https://www.freepnglogos.com/uploads/envelope-png/mail-envelope-interface-icons-23.png" alt=""></a>
+    </div>
+    <p>©2022 Created by Ratih & Debby </p>
+  </footer>
   <script>
     function myFunction() {
       let x = document.getElementById("myInput");
