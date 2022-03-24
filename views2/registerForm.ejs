@@ -5,255 +5,161 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Annyeong Store </title>
+  <title>Annyeong Store</title>
 </head>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    background-color: pink;
-
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-    background-size: 200% 100% !important;
-    animation: move 10s ease infinite;
-    transform: translate3d(0, 0, 0);
-    background: pink;
-    height: 100vh
-  }
-
-  .user {
-    width: 90%;
-    max-width: 340px;
-    margin: 10vh auto;
-  }
-
-  .user__header {
-    text-align: center;
-    opacity: 0;
-    transform: translate3d(0, 500px, 0);
-    animation: arrive 500ms ease-in-out 0.7s forwards;
-  }
-
-  .user__title {
-    font-size: 14px;
-    margin-bottom: -10px;
-    font-weight: 500;
-    color: white;
-  }
-
-  .form {
-    margin-top: 40px;
-    border-radius: 6px;
-    overflow: hidden;
-    opacity: 0;
-    transform: translate3d(0, 500px, 0);
-    animation: arrive 500ms ease-in-out 0.9s forwards;
-  }
-
-  .form--no {
-    animation: NO 1s ease-in-out;
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-
-  .form__input {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    font-family: "Poppins", sans-serif;
-    -webkit-appearance: none;
-    border: 0;
-    outline: 0;
-    transition: 0.3s;
-  }
-
-  .btn {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    font-family: "Poppins", sans-serif;
-    -webkit-appearance: none;
-    outline: 0;
-    border: 0;
-    color: white;
-    background: #C65D7B;
-    transition: 0.3s;
-
-  }
-
-  .select-opt {
-    position: relative;
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    color: #60666d;
-  }
-
-  footer {
-    background-color: #874356;
-    height: 15%;
-  }
-
-  a {
-    padding: 20px;
-  }
-
-  p {
-    color: #F6E7D8;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    padding-top: 15px
-  }
-
-  .foot-link {
-    padding-top: 20px;
-    text-align: center;
-  }
-
-  @keyframes NO {
-
-    from,
-    to {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-      -webkit-transform: translate3d(-10px, 0, 0);
-      transform: translate3d(-10px, 0, 0);
-    }
-
-    20%,
-    40%,
-    60%,
-    80% {
-      -webkit-transform: translate3d(10px, 0, 0);
-      transform: translate3d(10px, 0, 0);
-    }
-  }
-
-  @keyframes arrive {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, 50px, 0);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-</style>
 
 <body>
-  <nav>
-    <h1>Annyeong Store</h1>
-  </nav>
 
-  <div class="user">
-    <header class="user__header">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: pink;
+    }
 
-      <h1 class="user__title">Get Yours Now</h1>
-    </header>
+    * {
+      box-sizing: border-box
+    }
 
-    <form class="form" action="/register" method="POST">
-      <div class="form__group">
-        <input type="text" name="userName" placeholder="Username" class="form__input">
-      </div>
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password],
+    select,
+    option {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
 
-      <div class="form__group">
-        <input type="password" value="" id="myInput" name="password" class="form__input" placeholder="Password">
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=option]:focus,
+    input[type=select]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
 
-      </div>
-      <div class="form__group">
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+
+    /* Set a style for all buttons */
+    button {
+      background-color: #9ADCFF;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    button:hover {
+      opacity: 1;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      padding: 14px 20px;
+      background-color: #65C18C;
+    }
+
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn,
+    .signupbtn {
+      float: left;
+      width: 50%;
+    }
+
+    /* Add padding to container elements */
+    .container {
+      padding: 16px;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+
+      .cancelbtn,
+      .signupbtn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <body>
+
+    <form action="/register" style="border:1px solid #ccc" method="POST">
+      <div class="container">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+
+        <label for="userName"><b>User Name</b></label>
+        <input type="text" placeholder="Enter User Name" name="userName" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input id="show" type="password" placeholder="Enter Password" name="password" required>
+
         <input type="checkbox" onclick="myFunction()">Show Password
-      </div>
-
-      <br>
-      <div class="form__group">
-        <label class="user__title" for="membership">Membership</label>
+        <br><br>
+        <label for="membership"><b>Membership</b></label>
+        <br>
         <select class="select-opt" name="membership" id="" class="">
           <option selected disabled value="">--Select One--</option>
           <option value="Reguler">Reguler</option>
           <option value="VIP">VIP</option>
         </select>
+        
+        <label for="fullName"><b>Full Name</b></label>
+          <input type="text" placeholder="Enter Full Name" name="fullName" required>
+        
+
+        <label for="gender"><b>Gender</b></label>
+        <br>
+          <select name="gender" id="">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <br>
+          <br>
+        <label for="email"><b>Email</b></label>
+          <input type="text" name="email" id="" required>
+        
+
+        <label for="phone"><b>Phone</b></label>
+          <input type="text" name="phone" id="" required>
+        
+
+        <label for="adress"><b>Address</b></label>
+          <input type="text" name="address" id="" required>
+        
+        <div class="clearfix">
+          <button type="submit" class="signupbtn">Register</button>
+        </div>
       </div>
 
-      <div class="form__group">
-        <input type="text" name="fullName" id="" class="form__input" placeholder="Full Name">
-      </div>
-      <!-- <br><br> -->
-      <div class="form__group" class="form__input">
-        <label class="user__title" for="gender">Gender</label>
-        <select class="select-opt" name="gender" id="">
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
-      </div>
-
-      <br> -->
-      <div class="form__group">
-        <input type="text" name="email" id="" class="form__input" placeholder="Email">
-      </div>
-
-      <div class="form__group">
-        <input type="text" name="phone" id="" class="form__input" placeholder="Phone">
-      </div>
-
-      <div class="form__group">
-        <input type="text" name="address" id="" class="form__input" placeholder="Address">
-
-      </div>
-
-      <input class="btn" type="submit" value="Register">
     </form>
-
-  </div>
-  <div style="text-align: center;">
-    <% if (errors) {%>
-      <%errors=errors.split(",") %>
-        <% for(let i=0; i < errors.length ; i++) { %>
-          <p style="color: red;">
-            <%= errors[i] %>
-          </p>
-          <% } %>
-            <% } %>
-  </div>
-
-  <footer>
-    <div class="foot-link">
-      <a href="#"><img width="30rem"
-          src="https://www.freepnglogos.com/uploads/twitter-logo-png/black-and-white-twitter-logo-png-hq-download-25.png"
-          alt=""></a>
-      <a href="#"><img width="30rem"
-          src="https://www.freepnglogos.com/uploads/512x512-logo/512x512-transparent-instagram-logo-icon-5.png"
-          alt=""></a>
-      <a href="/emailUs"><img width="30rem"
-          src="https://www.freepnglogos.com/uploads/envelope-png/mail-envelope-interface-icons-23.png" alt=""></a>
-    </div>
-    <p>©2022 Created by Ratih & Debby </p>
-  </footer>
-  <script>
-    function myFunction() {
-      let x = document.getElementById("myInput");
-      if (x.type === "password") {
-        x.type = "text";
-      } else {
-        x.type = "password";
+    <script>
+      function myFunction() {
+        let x = document.getElementById("show");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
       }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 
 </html>
