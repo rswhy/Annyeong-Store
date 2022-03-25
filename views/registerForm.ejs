@@ -5,67 +5,160 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Annyeong Store </title>
+  <title>Annyeong Store</title>
+  <%- include('partials/head') -%>
 </head>
 
 <body>
-  <nav>
-    <h1>Annyeong Store</h1>
-  </nav>
-  <form action="http://localhost:3000/register" method="POST">
-    <label for="userName">User Name</label>
-    <br>
-    <input type="text" name="userName" id="">
-    <br><br>
-    <label for="password">Password</label>
-    <br>
-    <input type="password" value="" id="myInput" name="password">
-    <input type="checkbox" onclick="myFunction()">Show Password
-    <br><br>
-    <label for="membership">Membership</label>
-    <br>
-    <select name="membership" id="">
-      <option selected disabled>--Select One--</option>
-      <option value="Reguler">Reguler</option>
-      <option value="VIP">VIP</option>
-    </select>
-    <br><br>
-    <label for="fullName">Full Name</label>
-    <br>
-    <input type="text" name="fullName" id="">
-    <br><br>
-    <label for="gender">Gender</label>
-    <br>
-    <select name="gender" id="">
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
-    <br><br>
-    <label for="email">Email</label>
-    <br>
-    <input type="text" name="email" id="">
-    <br><br>
-    <label for="phone">Phone Number</label>
-    <br>
-    <input type="text" name="phone" id="">
-    <br><br>
-    <label for="adress">Address</label>
-    <br>
-    <input type="text" name="address" id="">
-    <br><br>
-    <input type="submit" value="Register">
-  </form>
-
-  <script>
-    function myFunction() {
-      let x = document.getElementById("myInput");
-      if (x.type === "password") {
-        x.type = "text";
-      } else {
-        x.type = "password";
+  <%- include('partials/title') -%>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: pink;
+    }
+    * {
+      box-sizing: border-box
+    }
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password],
+    select,
+    option {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=option]:focus,
+    input[type=select]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+    /* Set a style for all buttons */
+    button {
+      background-color: #9ADCFF;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 20%;
+      opacity: 0.9;
+    }
+    button:hover {
+      opacity: 1;
+    }
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      padding: 14px 20px;
+      background-color: #65C18C;
+    }
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn,
+    .signupbtn {
+      float: left;
+      width: 50%;
+    }
+    /* Add padding to container elements */
+    .container {
+      padding: 16px;
+    }
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+      .cancelbtn,
+      .signupbtn {
+        width: 100%;
       }
     }
-  </script>
-</body>
+  </style>
 
-</html>
+  <body>
+
+    <form action="/register" style="font-family: 'Cantarell', sans-serif; margin: 30px; margin-right: 300px; border:1px solid #ccc" method="POST">
+      <div class="container">
+        <h1>Sign Up</h1><br>
+        <h3 style="font-weight: 200;">Please fill in this form to create an account.</h3>
+        <p></p>
+        <hr>
+
+        <div><br>
+          <% if (errors) {%>
+            <p style="color: red;"><%= errors %> !</p> 
+          <%} %> 
+          <br>
+        </div>
+
+        <label for="userName"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="userName" >
+
+        <label for="psw"><b>Password</b></label>
+        <input id="show" type="password" placeholder="Enter Password" name="password" >
+
+        <input type="checkbox" onclick="myFunction()">Show Password
+        <br><br>
+        <label for="membership"><b>Membership</b></label>
+        <br>
+        <select class="select-opt" name="membership" id="" class="">
+          <option selected disabled>--Select One--</option>
+          <option value="Reguler">Reguler</option>
+          <option value="VIP">VIP</option>
+        </select>
+
+        <label for="fullName"><b>Full Name</b></label>
+          <input type="text" placeholder="Enter Full Name" name="fullName" >
+
+
+        <label for="gender"><b>Gender</b></label>
+        <br>
+          <select name="gender" id="">
+            <option selected disabled>--Select One--</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <br>
+          <br>
+        <label for="email"><b>Email</b></label>
+          <input type="text" name="email" id="" >
+
+
+        <label for="phone"><b>Phone</b></label>
+          <input type="text" name="phone" id="" >
+
+
+        <label for="adress"><b>Address</b></label>
+          <input type="text" name="address" id="" >
+
+        <div class="clearfix">
+          <button type="submit" class="signupbtn">Register</button>
+        </div>
+      </div>
+
+    </form>
+    <script>
+      function myFunction() {
+        let x = document.getElementById("show");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+    </script>
+      <%- include('partials/footer') -%>
+  </body>
+
+</html> 

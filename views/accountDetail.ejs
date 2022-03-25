@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annyeong Store</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <%- include('partials/head') -%>
+  
+</head>
+<body>
+  <%- include('partials/title') -%>
+  <h1  style="font-family: 'Cantarell', sans-serif; margin-left: 100px;">My Account Details</h1>
+  <br>
+  <br>
+  <div>
+    <form style="font-size: larger; font-family: 'Cantarell', sans-serif; margin-left: 100px;">  
+    
+      <div class="form-group">
+        <label for="email">User Name:</label>
+        <p><%= data.userName%> </p>
+      </div><br>
+      
+      <div class="form-group">
+        <label for="email">Full Name:</label>
+        <p><%= data.Profile.fullName  %> </p>
+      </div><br>
+      
+      <div class="form-group">
+        <label for="email">Gender:</label>
+        <p><%= data.Profile.gender %> </p>
+      </div><br>
+      
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <p><%= data.Profile.email %> </p>
+      </div><br>
+      <div class="form-group">
+        <label for="email">Phone Number:</label>
+        <p><%= data.Profile.phone %> </p>
+      </div><br>
+      <div class="form-group">
+        <label for="email">Address:</label>
+        <p><%= data.Profile.address  %> </p>
+      </div><br>
+    
+      <div class="form-group">
+        <label for="email">Purchased Item:</label>
+        <% if (data.ProductId === null) {%>
+          <p style="font-size: italic;">-</p>
+        <%} else {%>
+          <p><%= data.Product.productName  %> </p>
+        <%}%> 
+
+      </div><br>
+    
+      <a href="/deleteAccount/<%= data.id %>"  style="background-color: red; color: antiquewhite;"><button style="background-color: red; color: antiquewhite;">Delete Account</button></a><br> 
+    </form>
+    
+    </div>
+
+</body>
+
+</html> 

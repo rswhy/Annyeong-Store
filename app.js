@@ -19,6 +19,8 @@ app.use(session({
 }))
 
 
+app.get('/', Controller.home)
+
 app.get('/register', Controller.registerForm)
 
 app.post('/register', Controller.addUser)
@@ -58,6 +60,15 @@ app.get('/products/:productId', Controller.detailProduct)
 
 app.get('/products/:productId/:userId', Controller.buy)
 
+app.get("/emailUs", Controller.sendEmailForm)
+
+app.post("/emailUs", Controller.sendEmail)
+
+app.get("/myAccount/:id", Controller.myAccount)
+
+app.get("/deleteAccount/:id", Controller.deleteAccount)
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+

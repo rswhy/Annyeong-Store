@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Annyeong Store</title>
@@ -68,8 +64,8 @@
         }
         .card img {
             margin: 0 auto;
-            width: 300px;
-            height: 260px;
+            width: 400px;
+            height: 320px;
             object-fit: contain;
         }
         .card h4 {
@@ -168,46 +164,3 @@
       }
     }
     </style>
-</head>
-<body style="font-family: 'Cantarell', sans-serif;">
-    <div class="topnav">
-        <a class="active" href="/products">Home</a>
-        <a href="/products?<%= queryAll %>category=1">Cheering</a>
-        <a href="/products?<%= queryAll %>category=2">Accessories</a>
-        <a href="/products?<%= queryAll %>category=3">Album</a>
-        <a href="/products?<%= queryAll %>category=4">Fashion</a>
-        <div class="search-container">
-            <form action="/products">
-                <a class="active" href="/logout" style="background-color: rgb(255, 49, 49); size: 10px; float: right; font-size: 16px; padding: 12px;">Logout</a>
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-                <a href="/emailUs">Contact Us</a>
-                <a href="/myAccount/<%= userId %>">My Profile</a>
-
-            </form>
-        </div>
-    </div>
-    <div class="header">
-        <h1 style="color: rgb(255, 255, 255); font-family: 'Nunito', sans-serif; font-size: 70px;">Annyeong Store 안녕</h1>
-    </div><br>
-    <div style="padding-top: 20px; padding-left: 1500px;">
-        Sort by
-        <a style="text-decoration: none;" href="/products?<%= queryAll %>sortBy=high">Highest Price</a>
-        <a style="text-decoration: none;" href="/products?<%= queryAll %>sortBy=low">Lowest Price</a>
-    </div><br>
-    <div class="content-container">
-      <% products.forEach(el => {%>
-        <div class="card">
-            <a href="/products/<%= el.id %>"><img src="<%= el.imageUrl %>"></a>
-            <div style="text-align: center;">
-                <h3 style="font-weight: 200;"><a style="color: rgb(32, 32, 32); text-decoration: none;" href="/products/<%= el.id %>"><%= el.productName %></a></h3>
-            </div>
-            <h3 style="color: maroon;"><%= el.formatPrice() %></h3>
-            <h4><%= el.Category.categoryName %></h4>
-            <!-- <a class="btn btn-delete" href="http://localhost:3000/delete/<%= el.id %>">Buy now</a> -->
-        </div>
-      <%}) %> 
-    </div>
-    <%- include('partials/footer') -%>
-</body>
-</html>
